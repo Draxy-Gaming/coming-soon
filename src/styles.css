@@ -1,20 +1,24 @@
 .flip-clock {
     --fcc-flip-duration: 0.5s; /* transition duration when flip card */
-    --fcc-digit-block-width: 40px; /* width of digit card */
+    --fcc-digit-block-width: 30px; /* width of digit card */
     --fcc-digit-block-height: 60px; /* height of digit card, highly recommend in even number */
     --fcc-digit-font-size: 30px; /* font size of digit */
-    --fcc-digit-color: white; /* color of digit */
+    --fcc-digit-color: #000; /* color of digit */
     --fcc-label-font-size: 10px; /* font size of label */
-    --fcc-label-color: #ffffff; /* color of label */
-    --fcc-background: black; /* background of digit card */
-    --fcc-divider-color: white; /* color of divider */
+    --fcc-label-color: #fff; /* color of label */
+    --fcc-background: #fff; /* background of digit card */
+    --fcc-divider-color: #000; /* color of divider */
     --fcc-divider-height: 1px; /* height of divider */
     --fcc-separator-size: 6px; /* size of colon */
-    --fcc-separator-color: red; /* color of colon */
+    --fcc-separator-color: #fff; /* color of colon */
   }
 
+.flip-clock{
+    font-family: 'Orbitron';
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
 
-  
 *{
   margin: 0;
   padding: 0;
@@ -69,3 +73,32 @@ body{
 
 /* styles.css */
 
+@media (min-width: 900px) {
+    .page h1 {
+        font-size: 4rem;
+    }
+    .page h3 {
+        max-width: 600px;
+
+    }
+    .flip-clock{
+        --fcc-digit-block-width: 80px; /* width of digit card */
+        --fcc-digit-block-height: 120px; /* height of digit card, highly recommend in even number */
+        --fcc-digit-font-size: 60px; /* font size of digit */
+        --fcc-digit-color: #000; /* color of digit */
+        --fcc-label-font-size: 20px; /* font size of label */
+    }
+}
+.btn{
+    width: 180px;
+    height: 64px;
+    background: #fff;
+    color: #000;
+    font-size: 1rem;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0.4rem;
+    font-weight: 700;
+    cursor: pointer;
+}
