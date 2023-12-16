@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
 import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 import './styles.css';
@@ -6,21 +6,16 @@ import './styles.css';
 import VideoBg from '../src/assets/video.mp4';
 
 const App = () => {
-  const [email, setEmail] = useState('');
+  // Retrieve the stored timestamp or set a default value
+  const storedTimestamp = parseInt(localStorage.getItem('countdownTimestamp'), 10) || new Date().getTime() + 48 * 3600 * 1000 + 5000;
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  // State to manage the countdown target timestamp
+  const [countdownTarget, setCountdownTarget] = useState(storedTimestamp);
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-
-    // Perform any additional logic before or after submitting the form
-    // For example, you can validate the email or show a loading state
-
-    // Send the email to Formspree
-    window.formbutton("submit");
-  };
+  // Effect to update localStorage when countdownTarget changes
+  useEffect(() => {
+    localStorage.setItem('countdownTimestamp', countdownTarget.toString());
+  }, [countdownTarget]);
 
   return (
     <section className='page'>
@@ -29,30 +24,19 @@ const App = () => {
 
       <div className='page__content'>
         <h1>Launching Soon</h1>
-        <h3>Leave your email, and we will let you know once we are live.</h3>
+        <h3>Stay tuned for our exciting launch!</h3>
 
+        {/* Pass countdownTarget to FlipClockCountdown */}
         <FlipClockCountdown
-          to={new Date().getTime() + 48 * 3600 * 1000 + 5000}
+          to={countdownTarget}
           className='flip-clock'
           labels={['DAYS', 'HOURS', 'MINUTES', 'SECONDS']}
           duration={0.5}
         />
 
-        <form onSubmit={handleFormSubmit}>
-          <label>
-            Email:
-            <input
-              type='email'
-              value={email}
-              onChange={handleEmailChange}
-              placeholder='your@email.com'
-              required
-            />
-          </label>
-          <button type='submit' className='btn'>
-            Notify Me
-          </button>
-        </form>
+        <button className='btn' onClick={() => setCountdownTarget(new Date().getTime() + 48 * 3600 * 1000 + 5000)}>
+          Notify Me
+        </button>
       </div>
     </section>
   );

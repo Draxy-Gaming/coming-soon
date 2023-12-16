@@ -1,104 +1,129 @@
-.flip-clock {
-    --fcc-flip-duration: 0.5s; /* transition duration when flip card */
-    --fcc-digit-block-width: 30px; /* width of digit card */
-    --fcc-digit-block-height: 60px; /* height of digit card, highly recommend in even number */
-    --fcc-digit-font-size: 30px; /* font size of digit */
-    --fcc-digit-color: #000; /* color of digit */
-    --fcc-label-font-size: 10px; /* font size of label */
-    --fcc-label-color: #fff; /* color of label */
-    --fcc-background: #fff; /* background of digit card */
-    --fcc-divider-color: #000; /* color of divider */
-    --fcc-divider-height: 1px; /* height of divider */
-    --fcc-separator-size: 6px; /* size of colon */
-    --fcc-separator-color: #fff; /* color of colon */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-
-.flip-clock{
-    font-family: 'Orbitron';
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} 
-body{
+  
+  body {
     font-family: 'Poppins', sans-serif;
     color: #fff;
-}
-
-.page{
+  }
+  
+  .page {
     display: flex;
     width: 100vw;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.page video {
+  }
+  
+  .page video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-}
-
-.overlay {
-    background: rgba(0,0,0, 0.7);
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.7);
     position: absolute;
-    width:  100%;
+    width: 100%;
     height: 100%;
-}
-
-.page__content{
+  }
+  
+  .page__content {
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-.page h1 {
+  }
+  
+  .page h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
-}
-
-.page h3{
+  }
+  
+  .page h3 {
     font-weight: 300;
     max-width: 400px;
     margin-bottom: 3rem;
-}
-
-/* styles.css */
-
-@media (min-width: 900px) {
+  }
+  
+  .flip-clock {
+    --fcc-flip-duration: 0.5s;
+    --fcc-digit-block-width: 30px;
+    --fcc-digit-block-height: 60px;
+    --fcc-digit-font-size: 30px;
+    --fcc-digit-color: #000;
+    --fcc-label-font-size: 10px;
+    --fcc-label-color: #fff;
+    --fcc-background: #fff;
+    --fcc-divider-color: #000;
+    --fcc-divider-height: 1px;
+    --fcc-separator-size: 6px;
+    --fcc-separator-color: #fff;
+  }
+  
+  .flip-clock {
+    font-family: 'Orbitron';
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 900px) {
     .page h1 {
-        font-size: 4rem;
+      font-size: 4rem;
     }
     .page h3 {
-        max-width: 600px;
-
+      max-width: 600px;
     }
-    .flip-clock{
-        --fcc-digit-block-width: 80px; /* width of digit card */
-        --fcc-digit-block-height: 120px; /* height of digit card, highly recommend in even number */
-        --fcc-digit-font-size: 60px; /* font size of digit */
-        --fcc-digit-color: #000; /* color of digit */
-        --fcc-label-font-size: 20px; /* font size of label */
+    .flip-clock {
+      --fcc-digit-block-width: 80px;
+      --fcc-digit-block-height: 120px;
+      --fcc-digit-font-size: 60px;
+      --fcc-digit-color: #000;
+      --fcc-label-font-size: 20px;
     }
-}
-.btn{
-    width: 180px;
-    height: 64px;
-    background: #fff;
+  }
+  
+  .btn {
+    background-color: #fff; /* Change to your preferred color */
     color: #000;
-    font-size: 1rem;
-    font-family: 'Poppins';
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 0.4rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
+    border: none;
     cursor: pointer;
-}
+    transition: background-color 0.3s ease;
+    border-radius: 0.25rem;
+  }
+  
+  .btn:hover {
+    background-color: #eee; /* Adjusted hover background color */
+  }
+  
+
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(52, 152, 219, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.25rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    color: #fff;
+  }
+  
+  .input:focus {
+    border-color: rgba(41, 128, 185, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
